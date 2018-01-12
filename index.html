@@ -17,8 +17,9 @@
         $(document).ready(function () {
             $("body").load("demo.html");
 
-            var get_h1 = document.getElementsByTagName('h1').value;
+            var get_h1 = $('h1').html();
             console.log(get_h1); 
+        })
     </script>
 </head>
 <body>
