@@ -1,0 +1,20 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>使用jQuery Load函數</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+   $(document).ready(function(){
+   $("#btn1").click(function(){
+    $("#jqloadDiv").load("demo_str.txt");  
+   });
+   });
+  </script>
+</head>
+ <body> 
+    
+    <input type="button" id="btn1" name="btn1" value="執行jQuery Load按鈕" />
+    <div id="jqloadDiv"></div>
+  
+ </body>
+</html>
