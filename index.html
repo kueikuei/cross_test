@@ -4,9 +4,8 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    
-
     <script>
+
         // $(document).ready(function () {
         //     $("button").click(function () {
         //         $("#div1").load("demo_test.txt");
@@ -20,17 +19,41 @@
         // var get_h1 = $('body h1').html();
         // console.log($('h1').html()); 
 
-        $(document).ready(function () {
-            var get_h1 = $('head h1').html();
-            console.log(get_h1); 
-        })
+        var MagicText = function(text) {
+            this.text = text;
+        };
+
+        MagicText.prototype.load = function(html_file,cb) {
+            $("head").load(html_file);//html_file = 'demo.html'
+
+            $(document).ready(function () {
+                var demo = $('head h1').html();
+                // console.log(get_h1); 
+                cb(demo);
+            })
+
+        };
+
+        // $(document).ready(function () {
+        //     var get_h1 = $('head h1').html();
+        //     console.log(get_h1); 
+        // })
 
         
     </script>
 </head>
 <body>
     <script>
-        $("head").load("demo.html");
+        // $("head").load("demo.html");
+
+        var magicText = new MagicText('hello world');
+
+        function myRender(demo){
+            alert(demo);
+            // console.log('myRender function is working');
+        }
+
+        magicText.load('demo.html',myRender);
     </script>
     <!-- <h1>Hello Kitty</h1> -->
     <!-- <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div> -->
