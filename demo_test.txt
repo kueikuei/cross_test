@@ -1,1 +1,2 @@
-<h4>這是一個測試文字檔...</h4>
+<h2>jQuery and AJAX is FUN!</h2>
+<p id="p1">This is some text in a paragraph.</p>
