@@ -3,6 +3,9 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <h1>Hello Kitty</h1>
+
     <script>
         // $(document).ready(function () {
         //     $("button").click(function () {
@@ -14,12 +17,15 @@
         // head[0].innerHTML = '<object id="t" type=text/html data='+html_file+'></object>';
 
         //insert demo.html'dom into index.html's body
-        $(document).ready(function () {
-            $("body").load("demo.html");
+        var get_h1 = $('body h1').html();
+        console.log($('h1').html()); 
 
-            var get_h1 = $('body h1').html();
-            console.log($('h1').html()); 
-        })
+        // $(document).ready(function () {
+        //     $("body").load("demo.html");
+
+        //     var get_h1 = $('body h1').html();
+        //     console.log($('h1').html()); 
+        // })
 
         
     </script>
