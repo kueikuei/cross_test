@@ -60,7 +60,7 @@
             return dfd.promise();
         }
 
-        $.when($.ajax( "/demo.html" ))
+        $.when($.ajax( "/cross_test/demo.html" ))
             .then(MagicText.load,MagicText.load_fail);
 
         // $(document).ready(function () {
