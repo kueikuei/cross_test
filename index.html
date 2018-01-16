@@ -34,8 +34,7 @@
 
         // };
 
-        $.when($.ajax( "/demo.html" ))
-            .then(load,load_fail);
+        
 
         MagicText.prototype.load = function(html_file) {
 
@@ -82,8 +81,11 @@
             // console.log('myRender function is working');
         }
 
-        magicText
-            .load('dem.html');
+        // magicText
+        //     .load('dem.html');
+
+        $.when($.ajax( "/demo.html" ))
+            .then(magicText.load,magicText.load_fail);
 
         // magicText.load('demo.html',myRender);
     </script>
