@@ -37,7 +37,7 @@
         MagicText.prototype.load = function(html_file) {
             var dfd = $.Deferred();
 
-            $.when($.ajax("/cross_test/dem.html"))
+            $.when($.ajax("/cross_test/"+html_file))
                 .then(load,load_fail);
 
             function load(html_file){
@@ -52,25 +52,16 @@
             };
 
             return dfd.promise();
-
-            
-
-            // if($('head').load(html_file)){
-            //     dfd.resolve();
-            //     console.log('順利讀取檔案');
-            // }else{
-            //     dfd.reject();
-            //     console.log('讀取檔案失敗');
-            // }
             
         };
 
+        MagicText.prototype.then = function(cb){
+            $(document).ready(function () {
+                var demo = $('head h1').html();
 
-
-        // $(document).ready(function () {
-        //     var get_h1 = $('head h1').html();
-        //     console.log(get_h1); 
-        // })
+                cb(demo);
+            })
+        }
 
         
     </script>
@@ -87,7 +78,8 @@
         }
 
         magicText
-            .load('demo.html');
+            .load('demo.html')
+            .then(myRender)
 
 
         // magicText.load('demo.html',myRender);
