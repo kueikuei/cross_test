@@ -39,10 +39,10 @@
             var dfd = $.Deferred();
             
             if($('head').load(html_file)){
-                dtd.resolve();
+                dfd.resolve();
                 console.log('順利讀取檔案');
             }else{
-                dtd.reject();
+                dfd.reject();
                 console.log('讀取檔案失敗');
             }
             return dfd.promise();
