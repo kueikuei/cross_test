@@ -38,11 +38,13 @@
             var html_file = html_file;
             var dfd = $.Deferred();
 
+            $('head').load(html_file);
+
             $.when($.ajax("/cross_test/"+html_file))
                 .then(load,load_fail);
 
             function load(html_file){
-                $('head').load(html_file);
+                // $('head').load(html_file);
                 dfd.resolve();
                 console.log('順利讀取檔案');
             };
@@ -72,7 +74,7 @@
     <script>
         // $("head").load("demo.html");
 
-        var magicText = new MagicText('hello world');
+        var magicText = new MagicText();
 
         function myRender(demo){
             alert(demo);
