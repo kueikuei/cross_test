@@ -35,12 +35,25 @@
         // };
 
         MagicText.prototype.load = function(html_file) {
-
             var dfd = $.Deferred();
+
+            $.when($.ajax( "/cross_test/demo.html" ))
+                .then(load,load_fail);
+
+            function load(html_file){
+                $('head').load(html_file);
+                dfd.resolve();
+                console.log('順利讀取檔案');
+            };
+
+            function load_fail(){
+                dfd.reject();
+                console.log('讀取檔案失敗');      
+            };
+
+            return dfd.promise();
+
             
-            $('head').load(html_file);
-            console.log('順利讀取檔案');
-            dfd.resolve();
 
             // if($('head').load(html_file)){
             //     dfd.resolve();
@@ -49,19 +62,10 @@
             //     dfd.reject();
             //     console.log('讀取檔案失敗');
             // }
-
-            return dfd.promise();
+            
         };
 
-        MagicText.prototype.load_fail = function(){
-            dfd.reject();
-            console.log('讀取檔案失敗');
 
-            return dfd.promise();
-        }
-
-        $.when($.ajax( "/cross_test/demo.html" ))
-            .then(MagicText.load,MagicText.load_fail);
 
         // $(document).ready(function () {
         //     var get_h1 = $('head h1').html();
@@ -82,8 +86,8 @@
             // console.log('myRender function is working');
         }
 
-        // magicText
-        //     .load('demo.html');
+        magicText
+            .load('demo.html');
 
 
         // magicText.load('demo.html',myRender);
