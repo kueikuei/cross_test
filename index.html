@@ -3,7 +3,7 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <h1>Hello Kitty</h1>
     <script>
 
         // $(document).ready(function () {
@@ -34,28 +34,28 @@
 
         // };
 
-        MagicText.prototype.load = function(html_file) {
-            var html_file = html_file;
-            var dfd = $.Deferred();
+        // MagicText.prototype.load = function(html_file) {
+        //     var html_file = html_file;
+        //     var dfd = $.Deferred();
 
-            $.when($.ajax("/cross_test/"+html_file))
-                .then(load,load_fail);
+        //     $.when($.ajax("/cross_test/"+html_file))
+        //         .then(load,load_fail);
 
-            function load(html_file){
-                $('head').load(html_file);
-                dfd.resolve();
-                console.log('順利讀取檔案');
-            };
+        //     function load(html_file){
+        //         $('head').load(html_file);
+        //         dfd.resolve();
+        //         console.log('順利讀取檔案');
+        //     };
 
-            function load_fail(){
-                dfd.reject();
-                console.log('讀取檔案失敗');      
-            };
+        //     function load_fail(){
+        //         dfd.reject();
+        //         console.log('讀取檔案失敗');      
+        //     };
 
-            return this;
-            // return dfd.promise();
+        //     return this;
+        //     // return dfd.promise();
             
-        };
+        // };
 
         MagicText.prototype.then = function(cb){
             $(document).ready(function () {
@@ -80,8 +80,8 @@
         }
 
         magicText
-            .load('demo.html')
-            .then(myRender)
+            // .load('demo.html')
+            .then(myRender);
 
 
         // magicText.load('demo.html',myRender);
