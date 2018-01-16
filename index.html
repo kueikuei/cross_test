@@ -38,7 +38,7 @@
             var html_file = html_file;
             var dfd = $.Deferred();
 
-            $.when($.ajax("/cross_test/demo.html"))
+            $.when($.ajax("/cross_test/"+html_file))
                 .then(load,load_fail);
 
             function load(html_file){
@@ -52,7 +52,8 @@
                 console.log('讀取檔案失敗');      
             };
 
-            return dfd.promise();
+            return this;
+            // return dfd.promise();
             
         };
 
