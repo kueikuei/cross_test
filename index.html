@@ -34,8 +34,6 @@
 
         // };
 
-        
-
         MagicText.prototype.load = function(html_file) {
 
             var dfd = $.Deferred();
@@ -62,6 +60,9 @@
             return dfd.promise();
         }
 
+        $.when($.ajax( "/demo.html" ))
+            .then(MagicText.load,MagicText.load_fail);
+
         // $(document).ready(function () {
         //     var get_h1 = $('head h1').html();
         //     console.log(get_h1); 
@@ -82,10 +83,8 @@
         }
 
         // magicText
-        //     .load('dem.html');
+        //     .load('demo.html');
 
-        $.when($.ajax( "/demo.html" ))
-            .then(magicText.load,magicText.load_fail);
 
         // magicText.load('demo.html',myRender);
     </script>
