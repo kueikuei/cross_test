@@ -38,7 +38,7 @@
             var html_file = html_file;
             var dfd = $.Deferred();
 
-            $.when($.ajax("/cross_test/"+html_file))
+            $.when($.ajax("/cross_test/demo.html"))
                 .then(load,load_fail);
 
             function load(html_file){
