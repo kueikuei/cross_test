@@ -35,6 +35,7 @@
         // };
 
         MagicText.prototype.load = function(html_file) {
+            var html_file = html_file;
             var dfd = $.Deferred();
 
             $.when($.ajax("/cross_test/"+html_file))
