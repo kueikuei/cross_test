@@ -37,7 +37,7 @@
         MagicText.prototype.load = function(html_file) {
             var dfd = $.Deferred();
 
-            $.when($.ajax("/cross_test/demo.html"))
+            $.when($.ajax("/cross_test/dem.html"))
                 .then(load,load_fail);
 
             function load(html_file){
@@ -87,7 +87,7 @@
         }
 
         magicText
-            .load('dem.html');
+            .load('demo.html');
 
 
         // magicText.load('demo.html',myRender);
